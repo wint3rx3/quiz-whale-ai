@@ -26,9 +26,10 @@ def generate_problem(data, problem_type, key_point, problem_id=0):
             f"Return the problem in this JSON format:\n"
             f'{{"id": {problem_id}, "title": "{key_point}", "problem": "<question_text>", '
             f'"choices": {{"A": "<choice 1>", "B": "<choice 2>", "C": "<choice 3>", "D": "<choice 4>", "E": "<choice 5>"}}, '
-            f'"answer": "<correct choice (A/B/C/D/E)>"}}, without explanation.'
+            f'"answer": "<correct choice (A/B/C/D/E)>"}
+            f'"explanation": "explanation for problem and correct answer"}'
         )
-    else:  # O/X problem
+    else:  #O/X problem
         prompt = (
             f"Generate a True/False (O/X) question based on the following content and key points:\n\n"
             f"Content: {content}\n"
@@ -54,20 +55,20 @@ def generate_problem(data, problem_type, key_point, problem_id=0):
         return None
 
 # -------------------------------------------------
+if __name__ == "__main__":
+    # Example usage
+    generated_problems = []
+    pages = load_json("temp.json")
 
-# Example usage
-generated_problems = []
-pages = load_json("sample.json")
+    for i, page in enumerate(pages):
+        generated_problem = generate_problem(page, "multiple_choice", "Not given", problem_id=i + 1)
+        if generated_problem:
+            generated_problems.append(generated_problem)
+        else:
+            exit()
 
-for i, page in enumerate(pages):
-    generated_problem = generate_problem(page, "multiple_choice", "Not given", problem_id=i + 1)
-    if generated_problem:
-        generated_problems.append(generated_problem)
-    else:
-        exit()
+    # Save the generated problem to a JSON file
+    with open("generated_problems.json", "w", encoding="utf-8") as f:
+        json.dump(generated_problems, f, ensure_ascii=False, indent=4)
 
-# Save the generated problem to a JSON file
-with open("generated_problems.json", "w", encoding="utf-8") as f:
-    json.dump(generated_problems, f, ensure_ascii=False, indent=4)
-
-print("Generated problems saved to generated_problems.json")
+    print("Generated problems saved to generated_problems.json")
