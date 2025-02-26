@@ -120,7 +120,7 @@ if __name__ == "__main__":
     start_page = 1
     end_page = 3
     result = extract_pdf_content(pdf_path, start_page, end_page)
-    json_output_path = "doclayout_result.json"
+    json_output_path = "temp.json"
     with open(json_output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
     print("완료")
