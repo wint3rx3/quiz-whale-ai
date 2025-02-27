@@ -116,11 +116,14 @@ def extract_pdf_content(pdf_path, start_page, end_page, dpi=300):
 
 # 예시: 함수 호출 후 반환된 결과를 JSON 파일로 저장하는 코드
 if __name__ == "__main__":
-    pdf_path = "/content/transformer.pdf"  # 분석할 PDF 파일 경로
+    '''
+    pdf_path = "/pdf/transformer.pdf"  # 분석할 PDF 파일 경로
     start_page = 1
     end_page = 3
     result = extract_pdf_content(pdf_path, start_page, end_page)
-    json_output_path = "temp.json"
+    json_output_path = "json/temp.json"
     with open(json_output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
     print("완료")
+    '''
+    
