@@ -9,7 +9,6 @@ from PIL import Image
 
 # OCR 및 캡션 관련 라이브러리 임포트
 import easyocr
-import pytesseract
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
 # pix2tex 임포트 (수식 인식을 위해)
