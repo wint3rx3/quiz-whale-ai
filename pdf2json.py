@@ -1,5 +1,4 @@
 import os
-import torch
 import numpy as np
 import json
 from pdf2image import convert_from_path
@@ -12,7 +11,6 @@ import easyocr
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from pix2tex.cli import LatexOCR
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 def extract_pdf_content(pdf_path, start_page, end_page, dpi=300):
     # 모델들을 한 번에 로드
@@ -20,7 +18,7 @@ def extract_pdf_content(pdf_path, start_page, end_page, dpi=300):
         repo_id="juliozhao/DocLayout-YOLO-DocStructBench",
         filename="doclayout_yolo_docstructbench_imgsz1024.pt"
     ))
-    reader = easyocr.Reader(['en', 'ko'], gpu=torch.cuda.is_available())
+    reader = easyocr.Reader(['en', 'ko'])
     caption_processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
     caption_model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base").to(DEVICE)
     formula_ocr = LatexOCR()
