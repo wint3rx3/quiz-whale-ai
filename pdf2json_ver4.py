@@ -31,7 +31,7 @@ if __name__ == "__main__":
     pdf_path = "/pdf/transformer.pdf"  # 분석할 PDF 파일 경로
     start_page = 1
     end_page = 3
-    api_key = "K87010416888957"  # OCR.space API 키 (발급받은 키로 교체)
+    api_key = "YOUR_API_KEY_HERE"  # OCR.space API 키 (발급받은 키로 교체)
     
     result = extract_pdf_content_api(pdf_path, start_page, end_page, api_key)
     os.makedirs("json", exist_ok=True)
