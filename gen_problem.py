@@ -14,22 +14,25 @@ def generate_problem(data, problem_type, key_point, problem_id=0):
 
     if problem_type == "choice":
         prompt = (
-            f"Generate a multiple-choice question with 5 choices based on the following content and key points:\n\n"
+            f"Generate a multiple-choice question with 5 choices based on the following content and key points."
+            f"After that, generate explanation about the reason of answer.\n\n"
             f"Content: {content}\n"
             f"Key points: {key_point}\n\n"
             f"Return the problem in this JSON format:\n"
             f'{{"id": {problem_id}, "title": "{key_point}", "problem": "<question_text>", '
             f'"choices": {{"A": "<choice 1>", "B": "<choice 2>", "C": "<choice 3>", "D": "<choice 4>", "E": "<choice 5>"}}, '
-            f'"answer": "<correct choice (A/B/C/D/E)>"}}, without explanation.'
+            f'"answer": "<correct choice (A/B/C/D/E)>", '
+            f'"Explanation": "<Reason of the answer>" }}'
         )
     else:  # subject
         prompt = (
-            f"Generate \"Fill in the blank\" question based on the following content and key points:\n\n"
+            f"Generate \"Fill in the blank\" question based on the following content and key points."
+            f"After that, generate explanation about the reason of answer.\n\n"
             f"Content: {content}\n"
             f"Key points: {key_point}\n\n"
             f"Return the problem in this JSON format:\n"
-            f'{{"id": {problem_id}, "title": "{key_point}", "problem": "<statement_text>", "answer": "<A single word>"}}, '
-            f'without explanation.'
+            f'{{"id": {problem_id}, "title": "{key_point}", "problem": "<statement_text>", "answer": "<A single word>", '
+            f'"Explanation": "<Reason of the answer>" }}'
         )
 
     response = client.chat.completions.create(
