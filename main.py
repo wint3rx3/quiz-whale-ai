@@ -3,7 +3,7 @@ import json
 
 from gen_problem import load_json
 from gen_problem import generate_problem
-from pdf2json import extract_pdf_content
+from pdf2json_ver2 import extract_pdf_content
 from speech_to_json import transcribe_audio
 
 
