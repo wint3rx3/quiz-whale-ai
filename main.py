@@ -7,20 +7,18 @@ from PDF2JSON import extract_pdf_content
 from speech_to_json import transcribe_audio
 
 
-def main(file_format, file_path, json_path, problem_format, key_points):
+def main(file_format, file_path, json_path, problem_format, key_points, start_page, end_page):
     # file format: "pdf" or "mp3"
     # file_path: "pdf/test.pdf", "mp3/test.mp3", ...
     # json_path: "json/test.json", ...
     # problem_format: "choice" or "subject"
     # key_points: a string
+    # start_page, end_page: pdf range
 
     if file_format == "pdf":
-        start_page, end_page = 1, 3
-        # start_page, end_page 사용자 입력을 웹에서 전달받아야 함
-
-        result = extract_pdf_content(file_path, start_page, end_page)
+        json_data = extract_pdf_content(file_path, start_page, end_page)
         with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=2, ensure_ascii=False)
+            json.dump(json_data, f, indent=2, ensure_ascii=False)
     else:
         json_data = transcribe_audio(file_path)
         with open(json_path, "w", encoding="utf-8") as f:
@@ -47,4 +45,4 @@ def main(file_format, file_path, json_path, problem_format, key_points):
 
 
 if __name__ == "__main__":
-    main("pdf", "pdf/input.pdf", "json/input.json", "choice", "Not given")
+    main("pdf", "pdf/input.pdf", "json/input.json", "choice", "Not given", 1, 3)
