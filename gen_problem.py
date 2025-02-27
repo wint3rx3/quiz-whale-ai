@@ -15,7 +15,7 @@ def generate_problem(data, problem_type, key_point, problem_id=0):
     if problem_type == "choice":
         prompt = (
             f"Generate a multiple-choice question with 5 choices based on the following content and key points."
-            f"After that, generate explanation about the reason of answer.\n\n"
+            f"After that, generate explanation about the reason of answer. It must be less than 150 characters.\n\n"
             f"Content: {content}\n"
             f"Key points: {key_point}\n\n"
             f"Return the problem in this JSON format:\n"
@@ -27,7 +27,7 @@ def generate_problem(data, problem_type, key_point, problem_id=0):
     else:  # subject
         prompt = (
             f"Generate \"Fill in the blank\" question based on the following content and key points."
-            f"After that, generate explanation about the reason of answer.\n\n"
+            f"After that, generate explanation about the reason of answer. It must be less than 150 characters.\n\n"
             f"Content: {content}\n"
             f"Key points: {key_point}\n\n"
             f"Return the problem in this JSON format:\n"
