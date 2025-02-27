@@ -49,19 +49,21 @@ def generate_problem(data, problem_type, key_point, problem_id=0):
 
 # -------------------------------------------------
 
-# Example usage
-generated_problems = []
-pages = load_json("json/sample.json")
+'''
+if __name__ == "__main__":
+    generated_problems = []
+    pages = load_json("json/sample.json")
 
-for i, page in enumerate(pages):
-    generated_problem = generate_problem(page, "choice", "Not given", problem_id=i + 1)
-    if generated_problem:
-        generated_problems.append(generated_problem)
-    else:
-        exit()
+    for i, page in enumerate(pages):
+        generated_problem = generate_problem(page, "choice", "Not given", problem_id=i + 1)
+        if generated_problem:
+            generated_problems.append(generated_problem)
+        else:
+            exit()
 
-# Save the generated problem to a JSON file
-with open("json/generated_problems.json", "w", encoding="utf-8") as f:
-    json.dump(generated_problems, f, ensure_ascii=False, indent=4)
+    # Save the generated problem to a JSON file
+    with open("json/generated_problems.json", "w", encoding="utf-8") as f:
+        json.dump(generated_problems, f, ensure_ascii=False, indent=4)
 
-print("Generated problems saved to generated_problems.json")
+    print("Generated problems saved to generated_problems.json")
+'''
