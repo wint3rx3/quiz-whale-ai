@@ -3,7 +3,7 @@ import json
 
 from gen_problem import load_json
 from gen_problem import generate_problem
-from pdf2json import extract_pdf_content
+from PDF2JSON import extract_pdf_content
 from speech_to_json import transcribe_audio
 
 
@@ -38,11 +38,5 @@ def main(file_format, file_path, json_path, problem_format, key_points, start_pa
             exit()
 
     # Save the generated problem to a JSON file
-    with open("json/output.json", "w", encoding="utf-8") as f:
-        json.dump(generated_problems, f, ensure_ascii=False, indent=4)
-
     print("Generated problems saved to output.json")
-
-
-if __name__ == "__main__":
-    main("pdf", "pdf/input.pdf", "json/input.json", "choice", "Not given", 1, 3)
+    return json.dump(generated_problems, f, ensure_ascii=False, indent=4)
