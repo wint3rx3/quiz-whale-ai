@@ -32,7 +32,7 @@ def generate_problem(data, problem_type, key_point, problem_id=0):
             f"Key points: {key_point}\n\n"
             f"Return the problem in this JSON format:\n"
             f'{{"id": {problem_id}, "title": "{key_point}", "problem": "<statement_text>", "answer": "<A single word>", '
-            f'"Explanation": "<Reason of the answer>" }}'
+            f'"explanation": "<Reason of the answer>" }}'
         )
 
     response = client.chat.completions.create(
