@@ -8,7 +8,8 @@
 
 ### 나. 디자인 플랫폼
 기존 서비스 중, 산타 토익사의 UI/UX를 많이 참고했다. 메인 화면의 카드형 UI는 AI를 바탕으로 생성된 다양한 유형의 문제들을 한번에 보여주기 용이하고, 게이미피케이션 요소도 넣기 쉬운 장점을 가지고 있다. 내가 가지고 있는 디자인 역량을 활용하여 로고 디자인과 서비스 홍보 방향성도 한 번 고민해 보고 결과물을 완성하였다.
-![image](https://github.com/user-attachments/assets/ef60c39c-ec86-4efe-bc85-7ae578002040)
+![image](https://github.com/user-attachments/assets/3defd566-e1b9-42fb-99a6-91b3d9dccac1)
+
 
 ### 3. 시스템 아키텍처
 ![image](https://github.com/user-attachments/assets/af8d4a59-36b1-478b-b80f-8aaba410a9b3)
@@ -24,7 +25,7 @@
 - 마이페이지를 통한 북마크 및 오답노트 기능 제공
 - 모바일 확장을 통한 자투리 시간 공부
 
-![image](https://github.com/user-attachments/assets/11f8d377-b0f3-4313-aee5-de36e39b7ac9)
+![image](https://github.com/user-attachments/assets/38150f06-4571-4b1b-b243-b2b85c39a008)
 
 ### 5. 데모 영상
 https://youtu.be/W9P7ZD2I-G8
